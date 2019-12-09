@@ -7,7 +7,7 @@ $.ajaxPrefilter(function(settings, _, jqXHR) {
 //-------------- BEGIN VARIABLE/FUNCTION DECLARATIONS ---------------------
 
 var SERVER_URL = 'http://parse.shared.hackreactor.com/chatterbox/classes/messages';
-
+debugger;
 //This one calls the Parse server to grab data, and sends it to processData
 var getData = function() {
   $.ajax(SERVER_URL + '?order=-createdAt', {

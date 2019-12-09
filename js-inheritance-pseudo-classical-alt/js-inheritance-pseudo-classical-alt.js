@@ -40,11 +40,31 @@ var makeFlyingHorse = function(name, color) {
 // Do not use the ES6 `class` keyword; use ES5 to create your classes.
 
 var Horse = function(name) {
+	this.name = name;
 };
 
-
+// Horse.prototype = Object.create();
+Horse.prototype.goSomewhere = function(destination, milesToDestination) {
+    if (milesToDestination < 10) {
+      return oldGoSomewhere(destination);
+    } else {
+      return name + ' is flying to ' + destination + '!';
+    }
+  };
 
 var FlyingHorse = function(name, color) {
+	// this.name = name;
+	Horse.call(this);
+	this.color = color;
+	var oldGoSomewhere = this.goSomewhere;
 };
 
+FlyingHorse.prototype = Object.create(Horse.prototype);
 
+  result.goSomewhere = function(destination, milesToDestination) {
+    if (milesToDestination < 10) {
+      return oldGoSomewhere(destination);
+    } else {
+      return this.name + ' is flying to ' + destination + '!';
+    }
+  };
